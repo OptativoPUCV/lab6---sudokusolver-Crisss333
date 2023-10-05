@@ -60,11 +60,13 @@ List* get_adj_nodes(Node* n){
                 for (int num = 1; num <= 9; num++) {
                     // Crear una copia del nodo original para modificarla.
                     Node* adj_node = copy(n);
-                    // Intenta colocar el número en la casilla vacía.
+                    // Intentar colocar el número en la casilla vacía.
                     adj_node->sudo[row][col] = num;
-                    // Agrega el nodo adyacente a la lista.
+                    // Agregar el nodo adyacente a la lista.
                     push(list, adj_node);
                 }
+                // Se ha encontrado una casilla vacía, no es necesario buscar más.
+                break;
             }
         }
     }
