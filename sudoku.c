@@ -52,13 +52,13 @@ int is_valid(Node* n){
 List* get_adj_nodes(Node* n){
     List* list=createList();
 
-    // Itera a través del tablero para encontrar una casilla vacía.
+    // Iterar a través del tablero para encontrar una casilla vacía.
     for (int row = 0; row < 9; row++) {
         for (int col = 0; col < 9; col++) {
             if (n->sudo[row][col] == 0) {
-                // Encuentra una casilla vacía, intenta colocar números del 1 al 9.
+                // Encontrar una casilla vacía e intentar colocar números del 1 al 9.
                 for (int num = 1; num <= 9; num++) {
-                    // Crea una copia del nodo original para modificarla.
+                    // Crear una copia del nodo original para modificarla.
                     Node* adj_node = copy(n);
                 }
             }
