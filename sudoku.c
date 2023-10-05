@@ -43,41 +43,6 @@ void print_node(Node* n){
     printf("\n");
 }
 
-/*
-int is_valid(Node* n){
-    int row_check[9][10] = {0}; // Arreglo para verificar las filas.
-    int col_check[9][10] = {0}; // Arreglo para verificar las columnas.
-    int submatrix_check[9][10] = {0}; // Arreglo para verificar las submatrices.
-
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            int num = n->sudo[i][j];
-
-            // Verificar filas.
-            if (row_check[i][num] == 1) {
-                return 0; // Número repetido en la fila.
-            }
-            row_check[i][num] = 1;
-
-            // Verificar columnas.
-            if (col_check[j][num] == 1) {
-                return 0; // Número repetido en la columna.
-            }
-            col_check[j][num] = 1;
-
-            // Verificar submatrices de 3x3.
-            int submatrix_index = 3 * (i / 3) + (j / 3);
-            if (submatrix_check[submatrix_index][num] == 1) {
-                return 0; // Número repetido en la submatriz.
-            }
-            submatrix_check[submatrix_index][num] = 1;
-        }
-    }
-
-    return 1;
-}
-*/
-
 int is_valid(Node* n) {
     int row_check[9][10] = {0}; // Arreglo para verificar las filas.
     int col_check[9][10] = {0}; // Arreglo para verificar las columnas.
@@ -87,7 +52,7 @@ int is_valid(Node* n) {
         for (int j = 0; j < 9; j++) {
             int num = n->sudo[i][j];
             
-            // Ignora las casillas vacías (cero).
+            // Ignorar las casillas vacías (cero).
             if (num == 0) continue;
 
             // Verificar filas.
