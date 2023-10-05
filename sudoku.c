@@ -69,7 +69,7 @@ int is_valid(Node* n){
             if (submatrix_check[submatrix_index][num] == 1) {
                 return 0; // Número repetido en la submatriz.
             }
-            //submatrix_check[submatrix_index][num] = 1;
+            submatrix_check[submatrix_index][num] = 1;
         }
     }
 
