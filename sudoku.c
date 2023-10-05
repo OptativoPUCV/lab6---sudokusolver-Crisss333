@@ -44,6 +44,27 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
+    int row_check[9][10] = {0}; // Arreglo para verificar las filas.
+    int col_check[9][10] = {0}; // Arreglo para verificar las columnas.
+    int submatrix_check[9][10] = {0}; // Arreglo para verificar las submatrices.
+
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            int num = n->sudo[i][j];
+
+            // Verificar filas.
+            if (row_check[i][num] == 1) {
+                return 0; // Número repetido en la fila.
+            }
+            row_check[i][num] = 1;
+
+            // Verificar columnas.
+            if (col_check[j][num] == 1) {
+                return 0; // Número repetido en la columna.
+            }
+            col_check[j][num] = 1;
+        }
+    }
 
     return 1;
 }
@@ -69,8 +90,7 @@ List* get_adj_nodes(Node* n){
                 break;
             }
         }
-    }
-            
+    }            
     return list;
 }
 
