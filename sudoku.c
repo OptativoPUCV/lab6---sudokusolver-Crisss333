@@ -86,6 +86,9 @@ int is_valid(Node* n) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
             int num = n->sudo[i][j];
+            
+            // Ignora las casillas vacías (cero).
+            if (num == 0) continue;
 
             // Verificar filas.
             if (row_check[i][num] == 1) {
@@ -113,6 +116,7 @@ int is_valid(Node* n) {
 
     return 1; // El estado/nodo es válido.
 }
+
 
 
 List* get_adj_nodes(Node* n){
