@@ -136,9 +136,9 @@ List* get_adj_nodes(Node* n){
                     }
                 }
                 // Se ha encontrado una casilla vacía, no es necesario buscar más.
-                //if (found) {
-                //    break;
-                //}
+                if (found) {
+                    break;
+                }
             }
         }
         // Se ha encontrado una casilla vacía, no es necesario buscar más.
