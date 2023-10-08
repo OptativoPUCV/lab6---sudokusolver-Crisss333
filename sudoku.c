@@ -163,13 +163,50 @@ int is_final(Node* n){
     return 1;
 }
 
+
 Node* DFS(Node* initial, int* cont){
-  return NULL;
+    // Crear un stack para la búsqueda en profundidad.
+    Stack* S = createStack();
+    push(S, initial);
+
+    // Inicializar el contador de iteraciones.
+    *cont = 0;
+
+    while (!is_empty(S)) {
+        (*cont)++; // Incrementar el contador en cada iteración.
+
+        Node* current = top(S);
+        pop(S);
+
+        // Verificar si el nodo actual es un estado final.
+        if (is_final(current)) {
+            return current; // Se encontró una solución.
+        }
+
+        // Obtener la lista de nodos adyacentes al nodo actual.
+        List* adj_nodes = get_adj_nodes(current);
+        Node* adj_node = (Node*)front(adj_nodes);
+
+        while (adj_node != NULL) {
+            // Agregar los nodos adyacentes al stack S.
+            push(S, adj_node);
+            adj_node = (Node*)next(adj_nodes);
+        }
+
+        // Liberar la memoria usada por el nodo actual.
+        free(current);
+
+        // Liberar la lista de nodos adyacentes.
+        clean(adj_nodes);
+    }
+
+    // Si no se encontró una solución, retornar NULL.
+    return NULL;
 }
 
 
 
-/*
+
 int main( int argc, char *argv[] ){
 
   Node* initial= read_file("s12a.txt");;
@@ -180,4 +217,4 @@ int main( int argc, char *argv[] ){
   print_node(final);
 
   return 0;
-}*/
+}
