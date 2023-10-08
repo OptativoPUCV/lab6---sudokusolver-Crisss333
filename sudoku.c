@@ -163,12 +163,51 @@ int is_final(Node* n){
     return 1;
 }
 
+Node* DFS(Node* initial, int* cont) {
+    Stack* S = createStack();
+    push(S, initial);
 
-Node* DFS(Node* initial, int* cont){
-  return NULL;
+    *cont = 0;
+
+    while (!is_empty(S)) {
+        (*cont)++;
+
+        Node* current = top(S);
+        pop(S);
+
+        if (is_final(current)) {
+            return current;
+        }
+
+        int found = 0;
+
+        // Encontrar la primera casilla vacía
+        int row, col;
+        for (row = 0; row < 9 && !found; row++) {
+            for (col = 0; col < 9 && !found; col++) {
+                if (current->sudo[row][col] == 0) {
+                    found = 1;
+                }
+            }
+        }
+
+        if (found) {
+            // Encontrar una casilla vacía e intentar colocar números del 1 al 9.
+            for (int num = 1; num <= 9; num++) {
+                Node* adj_node = copy(current);
+                adj_node->sudo[row][col] = num;
+                push(S, adj_node);
+            }
+        }
+
+        free(current);
+    }
+
+    return NULL;
 }
 
 /*
+Node* DFS(Node* initial, int* cont){
     // Crear un stack para la búsqueda en profundidad.
     Stack* S = createStack();
     push(S, initial);
