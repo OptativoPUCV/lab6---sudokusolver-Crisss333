@@ -150,12 +150,17 @@ List* get_adj_nodes(Node* n){
 }
 
 
-
-
-
-
 int is_final(Node* n){
-    return 0;
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (n->sudo[i][j] == 0) {
+                // Si se encuentra una casilla vacía, el nodo no es final.
+                return 0;
+            }
+        }
+    }
+    // Si no se encontraron casillas vacías, el nodo es final.
+    //return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
