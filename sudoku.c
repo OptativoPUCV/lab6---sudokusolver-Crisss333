@@ -116,6 +116,7 @@ List* get_adj_nodes(Node* n){
     for (int row = 0; row < 9; row++) {
         for (int col = 0; col < 9; col++) {
             if (n->sudo[row][col] == 0) {
+                int valid_found = 0; // Bandera para verificar si se encontró al menos un nodo válido
                 // Encontrar una casilla vacía e intentar colocar números del 1 al 9.
                 for (int num = 1; num <= 9; num++) {
                     // Crear una copia del nodo original para modificarla.
@@ -127,18 +128,22 @@ List* get_adj_nodes(Node* n){
                     if (is_valid(adj_node)) {
                         // Si es válido, agregar el nodo adyacente a la lista.
                         push(list, adj_node);
+                        valid_found = 1; // Se encontró al menos un nodo válido
                     } else {
                         // Si no es válido, liberar la memoria del nodo no válido.
                         free(adj_node);
                     }
                 }
                 // Se ha encontrado una casilla vacía, no es necesario buscar más.
-                break;
+                if (valid_found) {
+                    break;
+                }
             }
         }
     }            
     return list;
 }
+
 
 
 
