@@ -165,6 +165,10 @@ int is_final(Node* n){
 
 
 Node* DFS(Node* initial, int* cont){
+  return NULL;
+}
+
+/*
     // Crear un stack para la búsqueda en profundidad.
     Stack* S = createStack();
     push(S, initial);
@@ -203,9 +207,9 @@ Node* DFS(Node* initial, int* cont){
     // Si no se encontró una solución, retornar NULL.
     return NULL;
 }
+*/
 
-
-
+/*
 int main( int argc, char *argv[] ){
 
   Node* initial= read_file("s12a.txt");;
@@ -217,6 +221,5 @@ int main( int argc, char *argv[] ){
 
   return 0;
 }
+*/
 
-Compile: `gcc sudoku -o sudoku`;
-run: `./sudoku`;
