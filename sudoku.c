@@ -160,7 +160,7 @@ int is_final(Node* n){
         }
     }
     // Si no se encontraron casillas vacías, el nodo es final.
-    //return 1;
+    return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
