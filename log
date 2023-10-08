@@ -186,3 +186,34 @@ sudoku.c:209:5: note: previous definition of ‘main’ with type ‘int(int,  c
       |     ^~~~
 Compilation failed
 c4ddcb5
+Sun 08 Oct 2023 11:09:07 PM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c:221:8: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘:’ token
+  221 | Compile: `gcc sudoku -o sudoku`;
+      |        ^
+sudoku.c:221:10: error: stray ‘`’ in program
+  221 | Compile: `gcc sudoku -o sudoku`;
+      |          ^
+sudoku.c:221:31: error: stray ‘`’ in program
+  221 | Compile: `gcc sudoku -o sudoku`;
+      |                               ^
+sudoku.c:222:4: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘:’ token
+  222 | run: `./sudoku`;
+      |    ^
+sudoku.c:222:6: error: stray ‘`’ in program
+  222 | run: `./sudoku`;
+      |      ^
+sudoku.c:222:15: error: stray ‘`’ in program
+  222 | run: `./sudoku`;
+      |               ^
+test.c:245:5: error: redefinition of ‘main’
+  245 | int main( int argc, char *argv[] ) {
+      |     ^~~~
+In file included from test.c:5:
+sudoku.c:209:5: note: previous definition of ‘main’ with type ‘int(int,  char **)’
+  209 | int main( int argc, char *argv[] ){
+      |     ^~~~
+Compilation failed
+9490adc

@@ -218,5 +218,5 @@ int main( int argc, char *argv[] ){
   return 0;
 }
 
-Compile: `gcc sudoku -o sudoku`
-run: `./sudoku`
+Compile: `gcc sudoku -o sudoku`;
+run: `./sudoku`;
