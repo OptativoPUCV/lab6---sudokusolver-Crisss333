@@ -83,7 +83,7 @@ int is_valid(Node* n) {
 }
 
 
-
+/*
 List* get_adj_nodes(Node* n){
     List* list=createList();
 
@@ -107,6 +107,38 @@ List* get_adj_nodes(Node* n){
     }            
     return list;
 }
+*/
+
+List* get_adj_nodes(Node* n){
+    List* list=createList();
+
+    // Iterar a través del tablero para encontrar una casilla vacía.
+    for (int row = 0; row < 9; row++) {
+        for (int col = 0; col < 9; col++) {
+            if (n->sudo[row][col] == 0) {
+                // Encontrar una casilla vacía e intentar colocar números del 1 al 9.
+                for (int num = 1; num <= 9; num++) {
+                    // Crear una copia del nodo original para modificarla.
+                    Node* adj_node = copy(n);
+                    // Intentar colocar el número en la casilla vacía.
+                    adj_node->sudo[row][col] = num;
+                    // Verificar si el nodo adyacente es válido.
+                    if (is_valid(adj_node)) {
+                        // Agregar el nodo adyacente a la lista si es válido.
+                        push(list, adj_node);
+                    } else {
+                        // Liberar memoria si el nodo no es válido.
+                        free(adj_node);
+                    }
+                }
+                // Se ha encontrado una casilla vacía, no es necesario buscar más.
+                break;
+            }
+        }
+    }            
+    return list;
+}
+
 
 
 int is_final(Node* n){
