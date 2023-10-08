@@ -110,7 +110,7 @@ List* get_adj_nodes(Node* n){
 */
 
 List* get_adj_nodes(Node* n){
-    List* list=createList();
+    List* list = createList();
 
     // Iterar a través del tablero para encontrar una casilla vacía.
     for (int row = 0; row < 9; row++) {
@@ -122,12 +122,13 @@ List* get_adj_nodes(Node* n){
                     Node* adj_node = copy(n);
                     // Intentar colocar el número en la casilla vacía.
                     adj_node->sudo[row][col] = num;
-                    // Verificar si el nodo adyacente es válido.
+
+                    // Verificar si el nodo resultante es válido.
                     if (is_valid(adj_node)) {
-                        // Agregar el nodo adyacente a la lista si es válido.
+                        // Si es válido, agregar el nodo adyacente a la lista.
                         push(list, adj_node);
                     } else {
-                        // Liberar memoria si el nodo no es válido.
+                        // Si no es válido, liberar la memoria del nodo no válido.
                         free(adj_node);
                     }
                 }
@@ -138,6 +139,7 @@ List* get_adj_nodes(Node* n){
     }            
     return list;
 }
+
 
 
 
