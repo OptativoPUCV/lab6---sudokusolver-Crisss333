@@ -43,48 +43,6 @@ void print_node(Node* n){
     printf("\n");
 }
 
-/*
-int is_valid(Node* n) {
-    int row_check[9][10] = {0}; // Arreglo para verificar las filas.
-    int col_check[9][10] = {0}; // Arreglo para verificar las columnas.
-    int submatrix_check[9][10] = {0}; // Arreglo para verificar las submatrices.
-
-    for (int i = 0; i < 9; i++) {
-        for (int j = 0; j < 9; j++) {
-            int num = n->sudo[i][j];
-            
-            // Ignorar las casillas vacías (cero).
-            if (num == 0) continue;
-
-            // Verificar filas.
-            if (row_check[i][num] == 1) {
-                printf("Fila %d, número %d repetido.\n", i, num);
-                return 0; // Número repetido en la fila.
-            }
-            row_check[i][num] = 1;
-
-            // Verificar columnas.
-            if (col_check[j][num] == 1) {
-                printf("Columna %d, número %d repetido.\n", j, num);
-                return 0; // Número repetido en la columna.
-            }
-            col_check[j][num] = 1;
-
-            // Verificar submatrices de 3x3.
-            int submatrix_index = 3 * (i / 3) + (j / 3);
-            if (submatrix_check[submatrix_index][num] == 1) {
-                printf("Submatriz %d, número %d repetido.\n", submatrix_index, num);
-                return 0; // Número repetido en la submatriz.
-            }
-            submatrix_check[submatrix_index][num] = 1;
-        }
-    }
-
-    return 1; // El estado/nodo es válido.
-}
-
-*/
-
 int is_valid(Node* n) {
     int marks[10];
     for (int i = 0; i < 9; i++) {
@@ -114,6 +72,7 @@ int is_valid(Node* n) {
     return 1;
 }
 
+
 List* get_adj_nodes(Node* n){
     List* list = createList();
     for(int i = 0; i < 9; i++){
@@ -135,47 +94,6 @@ List* get_adj_nodes(Node* n){
     return list;
 }
 
-/*
-List* get_adj_nodes(Node* n){
-    List* list = createList();
-
-    int found = 0; // Bandera para verificar si se encontró al menos un nodo válido
-
-    // Iterar a través del tablero para encontrar una casilla vacía.
-    for (int row = 0; row < 9; row++) {
-        for (int col = 0; col < 9; col++) {
-            if (n->sudo[row][col] == 0) {
-                // Encontrar una casilla vacía e intentar colocar números del 1 al 9.
-                for (int num = 1; num <= 9; num++) {
-                    // Crear una copia del nodo original para modificarla.
-                    Node* adj_node = copy(n);
-                    // Intentar colocar el número en la casilla vacía.
-                    adj_node->sudo[row][col] = num;
-
-                    // Verificar si el nodo resultante es válido.
-                    if (is_valid(adj_node)) {
-                        // Si es válido, agregar el nodo adyacente a la lista.
-                        push(list, adj_node);
-                        found = 1; // Se encontró al menos un nodo válido
-                    } else {
-                        // Si no es válido, liberar la memoria del nodo no válido.
-                        free(adj_node);
-                    }
-                }
-                // Se ha encontrado una casilla vacía, no es necesario buscar más.
-                if (found) {
-                    break;
-                }
-            }
-        }
-        // Se ha encontrado una casilla vacía, no es necesario buscar más.
-        if (found) {
-            break;
-        }
-    }            
-    return list;
-}
-*/
 
 int is_final(Node* n){
     for (int i = 0; i < 9; i++) {
@@ -190,42 +108,6 @@ int is_final(Node* n){
     return 1;
 }
 
-
-/*
-Node* DFS(Node* initial, int* cont){
-  return NULL;
-}
-*/
-
-/*
-Node* DFS(Node* initial, int* cont){
-    Stack* stack = createStack();
-    push(stack, initial);
-  
-    while (!is_empty(stack)) {
-        Node* current_node = top(stack);
-        pop(stack);
-        (*cont)++;
-      
-        if (is_final(current_node)) {
-            clean(stack);
-            return current_node;
-        }
-      
-        List* adj_nodes = get_adj_nodes(current_node);
-        Node* aux_node = first(adj_nodes);
-        while (aux_node != NULL) {
-            push(stack, aux_node);
-            aux_node = next(adj_nodes);
-        }
-      
-        clean(adj_nodes);
-    }
-  
-    clean(stack);
-    return NULL;
-}
-*/
 
 Node* DFS(Node* initial, int* cont){
     Stack* S = createStack();
