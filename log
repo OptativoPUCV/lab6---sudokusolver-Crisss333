@@ -421,3 +421,43 @@ Mon 09 Oct 2023 02:37:35 AM UTC:
  tests:  10|0
 total_score: 70/70
 25d5226
+Mon 09 Oct 2023 02:39:33 AM UTC: 
+ sudoku.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+In file included from test.c:5:
+sudoku.c:77:21: error: unknown type name ‘Node’
+   77 | List* get_adj_nodes(Node* n){
+      |                     ^~~~
+sudoku.c:111:1: error: unknown type name ‘Node’
+  111 | Node* DFS(Node* initial, int* cont){
+      | ^~~~
+sudoku.c:111:11: error: unknown type name ‘Node’
+  111 | Node* DFS(Node* initial, int* cont){
+      |           ^~~~
+In file included from test.c:5:
+sudoku.c:309:2: error: expected identifier or ‘(’ before ‘/’ token
+  309 | */
+      |  ^
+test.c: In function ‘adj_test1’:
+test.c:62:17: error: implicit declaration of function ‘get_adj_nodes’ [-Werror=implicit-function-declaration]
+   62 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+test.c:62:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:95:9: error: assignment to ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   95 |     adj = get_adj_nodes(initial);
+      |         ^
+test.c: In function ‘test_mod_adj’:
+test.c:155:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  155 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+test.c: In function ‘test_dfs’:
+test.c:206:19: error: implicit declaration of function ‘DFS’ [-Werror=implicit-function-declaration]
+  206 |     Node* final = DFS(initial, &cont);
+      |                   ^~~
+test.c:206:19: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:230:11: error: assignment to ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  230 |     final = DFS(initial, &cont);
+      |           ^
+cc1: all warnings being treated as errors
+Compilation failed
+6be484f

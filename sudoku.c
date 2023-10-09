@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
@@ -72,7 +73,7 @@ int is_valid(Node* n) {
     return 1;
 }
 
-
+*/
 List* get_adj_nodes(Node* n){
     List* list = createList();
     for(int i = 0; i < 9; i++){
@@ -94,7 +95,7 @@ List* get_adj_nodes(Node* n){
     return list;
 }
 
-
+/*
 int is_final(Node* n){
     for(int i = 0; i < 9; i++){
         for(int j = 0; j < 9; j++){
@@ -105,7 +106,7 @@ int is_final(Node* n){
     }
     return 1;  // Todas las casillas están llenas, retorna 1
 }
-
+*/
 
 Node* DFS(Node* initial, int* cont){
     Stack* S = createStack();
@@ -165,7 +166,7 @@ int main( int argc, char *argv[] ){
 
 
 
-/*
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -251,7 +252,7 @@ int is_valid(Node* n) {
     return 1; // El estado/nodo es válido.
 }
 
-
+/*
 List* get_adj_nodes(Node* n){
     List* list = createList();
 
@@ -291,7 +292,7 @@ List* get_adj_nodes(Node* n){
     }            
     return list;
 }
-
+*/
 
 int is_final(Node* n){
     for (int i = 0; i < 9; i++) {
