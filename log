@@ -461,3 +461,39 @@ test.c:230:11: error: assignment to ‘Node *’ from ‘int’ makes pointer fr
 cc1: all warnings being treated as errors
 Compilation failed
 6be484f
+Mon 09 Oct 2023 02:39:58 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c:77:21: error: unknown type name ‘Node’
+   77 | List* get_adj_nodes(Node* n){
+      |                     ^~~~
+sudoku.c:111:1: error: unknown type name ‘Node’
+  111 | Node* DFS(Node* initial, int* cont){
+      | ^~~~
+sudoku.c:111:11: error: unknown type name ‘Node’
+  111 | Node* DFS(Node* initial, int* cont){
+      |           ^~~~
+test.c: In function ‘adj_test1’:
+test.c:62:17: error: implicit declaration of function ‘get_adj_nodes’ [-Werror=implicit-function-declaration]
+   62 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+test.c:62:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:95:9: error: assignment to ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   95 |     adj = get_adj_nodes(initial);
+      |         ^
+test.c: In function ‘test_mod_adj’:
+test.c:155:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  155 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+test.c: In function ‘test_dfs’:
+test.c:206:19: error: implicit declaration of function ‘DFS’ [-Werror=implicit-function-declaration]
+  206 |     Node* final = DFS(initial, &cont);
+      |                   ^~~
+test.c:206:19: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:230:11: error: assignment to ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  230 |     final = DFS(initial, &cont);
+      |           ^
+cc1: all warnings being treated as errors
+Compilation failed
+f5d2692
