@@ -74,26 +74,7 @@ int is_valid(Node* n) {
 }
 
 */
-List* get_adj_nodes(Node* n){
-    List* list = createList();
-    for(int i = 0; i < 9; i++){
-        for(int j = 0; j < 9; j++){
-            if(n->sudo[i][j] == 0){
-                for(int num = 1; num <= 9; num++){
-                    Node* new_node = copy(n);
-                    new_node->sudo[i][j] = num;
-                    if(is_valid(new_node)){
-                        pushBack(list, new_node);
-                    } else {
-                        free(new_node);  // Libera la memoria si el nodo no es válido
-                    }
-                }
-                return list;  // Retorna la lista después de encontrar y llenar la primera casilla vacía
-            }
-        }
-    }
-    return list;
-}
+
 
 /*
 int is_final(Node* n){
@@ -106,7 +87,7 @@ int is_final(Node* n){
     }
     return 1;  // Todas las casillas están llenas, retorna 1
 }
-*/
+
 
 Node* DFS(Node* initial, int* cont){
     Stack* S = createStack();
@@ -134,7 +115,7 @@ Node* DFS(Node* initial, int* cont){
 
     return NULL;
 }
-
+*/
 
 
 
@@ -252,6 +233,27 @@ int is_valid(Node* n) {
     return 1; // El estado/nodo es válido.
 }
 
+List* get_adj_nodes(Node* n){
+    List* list = createList();
+    for(int i = 0; i < 9; i++){
+        for(int j = 0; j < 9; j++){
+            if(n->sudo[i][j] == 0){
+                for(int num = 1; num <= 9; num++){
+                    Node* new_node = copy(n);
+                    new_node->sudo[i][j] = num;
+                    if(is_valid(new_node)){
+                        pushBack(list, new_node);
+                    } else {
+                        free(new_node);  // Libera la memoria si el nodo no es válido
+                    }
+                }
+                return list;  // Retorna la lista después de encontrar y llenar la primera casilla vacía
+            }
+        }
+    }
+    return list;
+}
+
 /*
 List* get_adj_nodes(Node* n){
     List* list = createList();
@@ -343,7 +345,7 @@ Node* DFS(Node* initial, int* cont){
     return NULL;
 }
 */
-/*
+
 Node* DFS(Node* initial, int* cont){
     Stack* S = createStack();
     push(S, initial);
@@ -370,7 +372,7 @@ Node* DFS(Node* initial, int* cont){
 
     return NULL;
 }
-*/
+
 
 /*
 int main( int argc, char *argv[] ){

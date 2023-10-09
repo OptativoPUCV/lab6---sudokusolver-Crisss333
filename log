@@ -497,3 +497,9 @@ test.c:230:11: error: assignment to ‘Node *’ from ‘int’ makes pointer fr
 cc1: all warnings being treated as errors
 Compilation failed
 f5d2692
+Mon 09 Oct 2023 02:42:10 AM UTC: 
+ sudoku.c | 50 ++++++++++++++++++++++++++------------------------
+ 1 file changed, 26 insertions(+), 24 deletions(-)
+ tests:  10|0
+total_score: 70/70
+5ef2ded
