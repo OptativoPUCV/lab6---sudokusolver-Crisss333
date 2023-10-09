@@ -83,32 +83,6 @@ int is_valid(Node* n) {
 }
 
 
-/*
-List* get_adj_nodes(Node* n){
-    List* list=createList();
-
-    // Iterar a través del tablero para encontrar una casilla vacía.
-    for (int row = 0; row < 9; row++) {
-        for (int col = 0; col < 9; col++) {
-            if (n->sudo[row][col] == 0) {
-                // Encontrar una casilla vacía e intentar colocar números del 1 al 9.
-                for (int num = 1; num <= 9; num++) {
-                    // Crear una copia del nodo original para modificarla.
-                    Node* adj_node = copy(n);
-                    // Intentar colocar el número en la casilla vacía.
-                    adj_node->sudo[row][col] = num;
-                    // Agregar el nodo adyacente a la lista.
-                    push(list, adj_node);
-                }
-                // Se ha encontrado una casilla vacía, no es necesario buscar más.
-                break;
-            }
-        }
-    }            
-    return list;
-}
-*/
-
 List* get_adj_nodes(Node* n){
     List* list = createList();
 
@@ -163,87 +137,36 @@ int is_final(Node* n){
     return 1;
 }
 
-Node* DFS(Node* initial, int* cont) {
-    Stack* S = createStack();
-    push(S, initial);
-
-    *cont = 0;
-
-    while (!is_empty(S)) {
-        (*cont)++;
-
-        Node* current = top(S);
-        pop(S);
-
-        if (is_final(current)) {
-            return current;
-        }
-
-        int found = 0;
-
-        // Encontrar la primera casilla vacía
-        int row, col;
-        for (row = 0; row < 9 && !found; row++) {
-            for (col = 0; col < 9 && !found; col++) {
-                if (current->sudo[row][col] == 0) {
-                    found = 1;
-                }
-            }
-        }
-
-        if (found) {
-            // Encontrar una casilla vacía e intentar colocar números del 1 al 9.
-            for (int num = 1; num <= 9; num++) {
-                Node* adj_node = copy(current);
-                adj_node->sudo[row][col] = num;
-                push(S, adj_node);
-            }
-        }
-
-        free(current);
-    }
-
-    return NULL;
+Node* DFS(Node* initial, int* cont){
+  return NULL;
 }
 
 /*
 Node* DFS(Node* initial, int* cont){
-    // Crear un stack para la búsqueda en profundidad.
-    Stack* S = createStack();
-    push(S, initial);
-
-    // Inicializar el contador de iteraciones.
-    *cont = 0;
-
-    while (!is_empty(S)) {
-        (*cont)++; // Incrementar el contador en cada iteración.
-
-        Node* current = top(S);
-        pop(S);
-
-        // Verificar si el nodo actual es un estado final.
-        if (is_final(current)) {
-            return current; // Se encontró una solución.
+    Stack* stack = createStack();
+    push(stack, initial);
+  
+    while (!is_empty(stack)) {
+        Node* current_node = top(stack);
+        pop(stack);
+        (*cont)++;
+      
+        if (is_final(current_node)) {
+            clean(stack);
+            return current_node;
         }
-
-        // Obtener la lista de nodos adyacentes al nodo actual.
-        List* adj_nodes = get_adj_nodes(current);
-        Node* adj_node = (Node*)front(adj_nodes);
-
-        while (adj_node != NULL) {
-            // Agregar los nodos adyacentes al stack S.
-            push(S, adj_node);
-            adj_node = (Node*)next(adj_nodes);
+      
+        List* adj_nodes = get_adj_nodes(current_node);
+        Node* aux_node = first(adj_nodes);
+        while (aux_node != NULL) {
+            push(stack, aux_node);
+            aux_node = next(adj_nodes);
         }
-
-        // Liberar la memoria usada por el nodo actual.
-        free(current);
-
-        // Liberar la lista de nodos adyacentes.
+      
         clean(adj_nodes);
     }
-
-    // Si no se encontró una solución, retornar NULL.
+  
+    clean(stack);
     return NULL;
 }
 */
@@ -261,5 +184,6 @@ int main( int argc, char *argv[] ){
   return 0;
 }
 */
+
 
 
