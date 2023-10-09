@@ -251,3 +251,167 @@ Mon 09 Oct 2023 01:09:11 AM UTC:
  tests:  7|1
 total_score: 55/70
 462aa46
+Mon 09 Oct 2023 02:37:08 AM UTC: 
+ sudoku.c | 38 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+test.c: In function ‘adj_test1’:
+test.c:59:5: error: unknown type name ‘Node’
+   59 |     Node* initial = read_file("s12a.txt");
+      |     ^~~~
+test.c:59:21: error: implicit declaration of function ‘read_file’ [-Werror=implicit-function-declaration]
+   59 |     Node* initial = read_file("s12a.txt");
+      |                     ^~~~~~~~~
+test.c:59:21: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:62:17: error: implicit declaration of function ‘get_adj_nodes’ [-Werror=implicit-function-declaration]
+   62 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+test.c:62:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:69:5: error: unknown type name ‘Node’
+   69 |     Node* aux = first(adj);
+      |     ^~~~
+test.c:70:5: error: unknown type name ‘Node’
+   70 |     Node* aux2 = next(adj);
+      |     ^~~~
+test.c:75:11: error: request for member ‘sudo’ in something not a structure or union
+   75 |     if(aux->sudo[0][0]!=5 || aux->sudo[0][1]!=3 || aux->sudo[0][2]!=1){
+      |           ^~
+test.c:75:33: error: request for member ‘sudo’ in something not a structure or union
+   75 |     if(aux->sudo[0][0]!=5 || aux->sudo[0][1]!=3 || aux->sudo[0][2]!=1){
+      |                                 ^~
+test.c:75:55: error: request for member ‘sudo’ in something not a structure or union
+   75 |     if(aux->sudo[0][0]!=5 || aux->sudo[0][1]!=3 || aux->sudo[0][2]!=1){
+      |                                                       ^~
+test.c:76:74: error: request for member ‘sudo’ in something not a structure or union
+   76 |         sprintf(msg, "primer nodo %d %d %d... (deberia ser 5 3 1...)",aux->sudo[0][0],aux->sudo[0][1],aux->sudo[0][2]);
+      |                                                                          ^~
+test.c:76:90: error: request for member ‘sudo’ in something not a structure or union
+   76 |         sprintf(msg, "primer nodo %d %d %d... (deberia ser 5 3 1...)",aux->sudo[0][0],aux->sudo[0][1],aux->sudo[0][2]);
+      |                                                                                          ^~
+test.c:76:106: error: request for member ‘sudo’ in something not a structure or union
+   76 |         sprintf(msg, "primer nodo %d %d %d... (deberia ser 5 3 1...)",aux->sudo[0][0],aux->sudo[0][1],aux->sudo[0][2]);
+      |                                                                                                          ^~
+test.c:81:12: error: request for member ‘sudo’ in something not a structure or union
+   81 |     if(aux2->sudo[0][0]!=5 || aux2->sudo[0][1]!=3 || aux2->sudo[0][2]!=2){
+      |            ^~
+test.c:81:35: error: request for member ‘sudo’ in something not a structure or union
+   81 |     if(aux2->sudo[0][0]!=5 || aux2->sudo[0][1]!=3 || aux2->sudo[0][2]!=2){
+      |                                   ^~
+test.c:81:58: error: request for member ‘sudo’ in something not a structure or union
+   81 |     if(aux2->sudo[0][0]!=5 || aux2->sudo[0][1]!=3 || aux2->sudo[0][2]!=2){
+      |                                                          ^~
+test.c:82:76: error: request for member ‘sudo’ in something not a structure or union
+   82 |         sprintf(msg, "segundo nodo %d %d %d... (deberia ser 5 3 2...)",aux2->sudo[0][0],aux2->sudo[0][1],aux2->sudo[0][2]);
+      |                                                                            ^~
+test.c:82:93: error: request for member ‘sudo’ in something not a structure or union
+   82 |         sprintf(msg, "segundo nodo %d %d %d... (deberia ser 5 3 2...)",aux2->sudo[0][0],aux2->sudo[0][1],aux2->sudo[0][2]);
+      |                                                                                             ^~
+test.c:82:110: error: request for member ‘sudo’ in something not a structure or union
+   82 |         sprintf(msg, "segundo nodo %d %d %d... (deberia ser 5 3 2...)",aux2->sudo[0][0],aux2->sudo[0][1],aux2->sudo[0][2]);
+      |                                                                                                              ^~
+test.c:92:20: error: request for member ‘sudo’ in something not a structure or union
+   92 |             initial->sudo[i][j]=1;
+      |                    ^~
+test.c:95:9: error: assignment to ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+   95 |     adj = get_adj_nodes(initial);
+      |         ^
+test.c: In function ‘test_isvalid’:
+test.c:108:5: error: unknown type name ‘Node’
+  108 |     Node* initial = read_file("s12a.txt");
+      |     ^~~~
+test.c:108:21: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  108 |     Node* initial = read_file("s12a.txt");
+      |                     ^~~~~~~~~
+test.c:112:9: error: implicit declaration of function ‘is_valid’ [-Werror=implicit-function-declaration]
+  112 |     if(!is_valid(initial)){
+      |         ^~~~~~~~
+test.c:118:12: error: request for member ‘sudo’ in something not a structure or union
+  118 |     initial->sudo[0][8]=5;
+      |            ^~
+test.c:126:12: error: request for member ‘sudo’ in something not a structure or union
+  126 |     initial->sudo[0][8]=0;
+      |            ^~
+test.c:129:12: error: request for member ‘sudo’ in something not a structure or union
+  129 |     initial->sudo[8][4]=7;
+      |            ^~
+test.c:137:12: error: request for member ‘sudo’ in something not a structure or union
+  137 |     initial->sudo[8][4]=0;
+      |            ^~
+test.c:140:12: error: request for member ‘sudo’ in something not a structure or union
+  140 |     initial->sudo[2][3]=6;
+      |            ^~
+test.c: In function ‘test_mod_adj’:
+test.c:152:5: error: unknown type name ‘Node’
+  152 |     Node* initial = read_file("s12a.txt");
+      |     ^~~~
+test.c:152:21: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  152 |     Node* initial = read_file("s12a.txt");
+      |                     ^~~~~~~~~
+test.c:155:17: error: initialization of ‘List *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  155 |     List* adj = get_adj_nodes(initial);
+      |                 ^~~~~~~~~~~~~
+test.c:163:5: error: unknown type name ‘Node’
+  163 |     Node* aux1 = first(adj);
+      |     ^~~~
+test.c:164:5: error: unknown type name ‘Node’
+  164 |     Node* aux2 = next(adj);
+      |     ^~~~
+test.c:165:5: error: unknown type name ‘Node’
+  165 |     Node* aux3 = next(adj);
+      |     ^~~~
+test.c:166:12: error: request for member ‘sudo’ in something not a structure or union
+  166 |     if(aux1->sudo[0][2]!=1 || aux2->sudo[0][2]!=2 || aux3->sudo[0][2]!=4){
+      |            ^~
+test.c:166:35: error: request for member ‘sudo’ in something not a structure or union
+  166 |     if(aux1->sudo[0][2]!=1 || aux2->sudo[0][2]!=2 || aux3->sudo[0][2]!=4){
+      |                                   ^~
+test.c:166:58: error: request for member ‘sudo’ in something not a structure or union
+  166 |     if(aux1->sudo[0][2]!=1 || aux2->sudo[0][2]!=2 || aux3->sudo[0][2]!=4){
+      |                                                          ^~
+test.c:167:97: error: request for member ‘sudo’ in something not a structure or union
+  167 |         sprintf(msg,"los valores validos para la tercera casilla son 1,2,4 y no %d,%d y %d",aux1->sudo[0][2],aux2->sudo[0][2],aux3->sudo[0][2]);
+      |                                                                                                 ^~
+test.c:167:114: error: request for member ‘sudo’ in something not a structure or union
+  167 |         sprintf(msg,"los valores validos para la tercera casilla son 1,2,4 y no %d,%d y %d",aux1->sudo[0][2],aux2->sudo[0][2],aux3->sudo[0][2]);
+      |                                                                                                                  ^~
+test.c:167:131: error: request for member ‘sudo’ in something not a structure or union
+  167 |         sprintf(msg,"los valores validos para la tercera casilla son 1,2,4 y no %d,%d y %d",aux1->sudo[0][2],aux2->sudo[0][2],aux3->sudo[0][2]);
+      |                                                                                                                                   ^~
+test.c: In function ‘test_isfinal’:
+test.c:178:5: error: unknown type name ‘Node’
+  178 |     Node* initial = read_file("s12a.txt");
+      |     ^~~~
+test.c:178:21: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  178 |     Node* initial = read_file("s12a.txt");
+      |                     ^~~~~~~~~
+test.c:180:8: error: implicit declaration of function ‘is_final’ [-Werror=implicit-function-declaration]
+  180 |     if(is_final(initial)){
+      |        ^~~~~~~~
+test.c:189:20: error: request for member ‘sudo’ in something not a structure or union
+  189 |             initial->sudo[i][j]=1;
+      |                    ^~
+test.c: In function ‘test_dfs’:
+test.c:203:5: error: unknown type name ‘Node’
+  203 |     Node* initial = read_file("s12a.txt");
+      |     ^~~~
+test.c:203:21: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  203 |     Node* initial = read_file("s12a.txt");
+      |                     ^~~~~~~~~
+test.c:206:5: error: unknown type name ‘Node’
+  206 |     Node* final = DFS(initial, &cont);
+      |     ^~~~
+test.c:206:19: error: implicit declaration of function ‘DFS’ [-Werror=implicit-function-declaration]
+  206 |     Node* final = DFS(initial, &cont);
+      |                   ^~~
+test.c:206:19: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:226:13: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  226 |     initial = read_file("s12a.txt");
+      |             ^
+test.c:229:12: error: request for member ‘sudo’ in something not a structure or union
+  229 |     initial->sudo[0][2]=1;
+      |            ^~
+test.c:230:11: error: assignment to ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  230 |     final = DFS(initial, &cont);
+      |           ^
+cc1: all warnings being treated as errors
+Compilation failed
+a5df114
