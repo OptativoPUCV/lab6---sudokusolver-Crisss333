@@ -415,3 +415,9 @@ test.c:230:11: error: assignment to ‘int *’ from ‘int’ makes pointer fro
 cc1: all warnings being treated as errors
 Compilation failed
 a5df114
+Mon 09 Oct 2023 02:37:35 AM UTC: 
+ sudoku.c | 162 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 162 insertions(+)
+ tests:  10|0
+total_score: 70/70
+25d5226
